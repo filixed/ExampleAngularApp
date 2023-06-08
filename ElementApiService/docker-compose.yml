@@ -17,4 +17,6 @@ services:
       - "5123:80"
     build:
       context: .
-      dockerfile: ElementApiService/Dockerfile      
+      dockerfile: ElementApiService/Dockerfile
+    depends_on:
+      - postgres   
