@@ -1,0 +1,20 @@
+﻿
+services:
+  postgres:
+    image: postgres:latest
+    container_name: elementApiDb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=dotnet
+    ports:
+      - "5432:5432"
+    restart: always
+  
+  elementapiservice:
+    image: elementapiservice
+    ports:
+      - "5123:80"
+    build:
+      context: .
+      dockerfile: ElementApiService/Dockerfile      

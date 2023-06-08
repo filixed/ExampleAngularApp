@@ -1,0 +1,11 @@
+.container{
+    padding-top: 100px;
+    margin: auto;
+    width: 350px;
+    height: 400px;
+}
+.element{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
