@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { first } from 'rxjs';
 import { elementDto } from 'src/app/Model/elementDto';
 import { CrudService } from 'src/app/services/crud.service';
 
@@ -33,10 +34,10 @@ export class UpdateFormComponent implements OnInit {
     console.log(this.elementFrom.value)
   }
   
-  OnFormSubbmission() {
+  async OnFormSubbmission() {
     if(this.elementFrom.valid){
       this.uppdateElementDto()
-      this.crudService.updateElement(this.elementData).subscribe({
+      const value = (await this.crudService.updateElement(this.elementData)).pipe(first()).subscribe({
         next: (value: any) => {
           this._dialogRef.close(true);
         },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { first } from 'rxjs';
 import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
@@ -25,16 +26,16 @@ export class AddFormComponent{
     //public crudService: CrudService
   }
   
-  OnFormSubbmission() {
+ async OnFormSubbmission() {
     if(this.elementFrom.valid){
-      this.crudService.addElement(this.elementFrom.value).subscribe({
+      const value = (await this.crudService.addElement(this.elementFrom.value)).pipe(first()).subscribe({
         next: (value: any) => {
           this._dialogRef.close(true);
         },
         error: (error) => {
           console.error(error)
         }
-      })
+      })    
     }
   }  
 }

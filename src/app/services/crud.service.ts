@@ -15,7 +15,7 @@ export class CrudService {
 
   constructor(private http: HttpClient) { }
 
-  addElement(data: elementDto):Observable<any> {
+  async addElement(data: elementDto): Promise<Observable<any>> {
     console.log(data);
     return this.http.post(this.baseUri+'element', data)
   }
@@ -28,7 +28,7 @@ export class CrudService {
     return this.http.delete<elementDto []>(this.baseUri+'element/', {body: id});
   }
 
-  updateElement(data: elementDto):Observable<any> {
+ async updateElement(data: elementDto):Promise<Observable<any>> {
     console.log(data)
     return this.http.put(this.baseUri+'element', data)
   }
