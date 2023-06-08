@@ -1,0 +1,23 @@
+<div class="container">
+  <mat-card class="example-card">
+    <img mat-card-image src={{getData().imgHref}} alt="Photo of a Shiba Inu">
+    <mat-card-content style="background-color: azure;">
+      <div class="element">
+        <span>AtomicNumber:</span>
+        <span>{{getData().atomicNumber}}</span>
+      </div>
+      <div class="element">
+        <span>Symbol:</span>
+        <span>{{getData().symbol}}</span>
+      </div>
+      <div class="element">
+        <span>Name:</span>
+        <span>{{getData().name}}</span>
+      </div>
+      <div class="element">
+        <span>Weight:</span>
+        <span>{{getData().weight}}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

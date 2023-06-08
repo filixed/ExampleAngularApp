@@ -1,0 +1,36 @@
+<div mat-dialog-title>
+    <h1>Element Form</h1>
+</div>
+<form [formGroup]="elementFrom" (ngSubmit)="OnFormSubbmission()">
+    <div mat-dialog-content>
+        <div class="row">
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Symbol</mat-label>
+                <input matInput type="text" placeholder="Ex. He" formControlName="symbol">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>AtomicNumber</mat-label>
+                <input matInput type="number" placeholder="1" formControlName="atomicNumber">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" placeholder="Elemental name" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Weight</mat-label>
+                <input matInput type="number" placeholder="weight" formControlName="weight">
+            </mat-form-field>
+        </div>
+        <mat-form-field class="example-full-width" color="accent" appearance="outline">
+            <mat-label>Image Href</mat-label>
+            <input matInput type="text" placeholder="link to image" formControlName="imgHref">
+        </mat-form-field>
+
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="accent" type="submit" [mat-dialog-close]="false">Add</button>
+    </div>
+</form>
